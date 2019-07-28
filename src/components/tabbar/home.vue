@@ -16,9 +16,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    mt-swipe{
+    .mint-swipe{
       height: 200px;
+      .mint-swipe-item{
+        &::nth-child(1){
+          background-color: red;
+        }
+      }
     }
+    
 </style>
 
 
