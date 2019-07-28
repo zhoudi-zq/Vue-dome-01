@@ -8,6 +8,9 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 import router from './router.js';
 
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 import 'mint-ui/lib/style.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import './css/app.css'

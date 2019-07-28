@@ -3,7 +3,6 @@
         
         <mt-header fixed title="黑马程序员Vue项目"></mt-header>
 				<router-view></router-view>
-				<h1>123</h1>
         <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item " href="#tabbar" to="/home">
 				<span class="mui-icon mui-icon-home"></span>
