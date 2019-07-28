@@ -39,5 +39,9 @@
     "mint-ui": "^2.2.13",
     "url-loader": "^2.1.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/zhoudi/vue01.git"
+  },
   "description": ""
 }

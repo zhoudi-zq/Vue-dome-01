@@ -15,14 +15,13 @@ import './lib/mui/css/mui.css'
 // import './lib/mui/js/mui.js'
 import './lib/mui/css/icons-extra.css'
 
-import { Swipe, SwipeItem } from 'mint-ui';
+import { Header,Swipe,SwipeItem } from 'mint-ui'
 
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-import {Header} from 'mint-ui';
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Header.name,Header)
 
-import app from './App.vue';
+import app from './App.vue'
 
 
 

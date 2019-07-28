@@ -16,9 +16,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .mt-swipe-item{
-      width: 100%;
-      height: 100%;
+    mt-swipe{
+      height: 200px;
     }
 </style>
 
