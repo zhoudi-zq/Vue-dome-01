@@ -2,7 +2,10 @@
     <div class="app-container">
         
         <mt-header fixed title="黑马程序员Vue项目"></mt-header>
-				<router-view></router-view>
+				<transition>
+						<router-view></router-view>
+				</transition>
+				
         <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item " href="#tabbar" to="/home">
 				<span class="mui-icon mui-icon-home"></span>
@@ -31,12 +34,22 @@
 </script>
 
 <style  scoped>
+.v-enter{
+	opacity: 0;
+	transform: translateX(100%);
+}
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%);
+	position: absolute;
+}
+.v-enter-active,.v-leave-active{
+	transition: all 0.5s ease;
+	
+}
     .app-container{
         margin-top: 40px;
-		}
-		router-view{
-			width: 100%;
-			height: 500px;
+				overflow-x: hidden;
 		}
 </style>
 
