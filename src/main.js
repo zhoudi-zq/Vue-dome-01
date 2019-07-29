@@ -10,6 +10,10 @@ import router from './router.js';
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+import moment from 'moment'
+Vue.filter('dataFormat',function(dataStr,pattern = "YY-MM-DD HH:mm:ss"){
+   return moment(dataStr).format(pattern)
+})
 
 import 'mint-ui/lib/style.css'
 import 'bootstrap/dist/css/bootstrap.css'
