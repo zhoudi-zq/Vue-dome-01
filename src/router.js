@@ -17,7 +17,7 @@ var router = new VueRouter({
             {  path:'/search',component:search },
             {  path:'/home/newlist',component:newlist },
             {  path:'/home/newsinfo/:id',component:newsinfo },
-            {  path:'/home/photolist',compoennt:photolist }
+            {  path:'/home/photolist',component:photolist }
         ],
         linkActiveClass:'mui-active' //覆盖默认的 link-active-class 这个类
     })
