@@ -23,11 +23,12 @@ import './lib/mui/css/mui.css'
 // import './lib/mui/js/webviewGroup.js'
 import './lib/mui/css/icons-extra.css'
 
-import { Header,Swipe,SwipeItem } from 'mint-ui'
+import { Header,Swipe,SwipeItem,Button } from 'mint-ui'
 
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Header.name,Header)
+Vue.component(Button.name,Button)
 
 import app from './App.vue'
 
