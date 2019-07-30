@@ -2,7 +2,7 @@
     <div class="cmt-container">
       <h3>发表评论</h3>
       <hr>
-      <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120"></textarea>
+      <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120" v-model="msg"></textarea>
       <div class="cmt-list">
         <div class="cmt-item"  v-for="(item,i) in cmtlist" :key="item.user_name">
         <div class="cmt-title" >
@@ -24,7 +24,8 @@ export default {
   data(){
     return{
       cmtlist:[],//用来接收评论数据的数组
-      pageIndex:1
+      pageIndex:1,
+      msg:''
     }
   },
   created(){
