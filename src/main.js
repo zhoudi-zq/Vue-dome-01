@@ -6,6 +6,8 @@ import Vue from 'vue';
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
+// Vue.http.options.root = ""//设置请求根路经
+// Vue.http.options.emulateJSON = true; //全局设置post时候表单数据格式
 import router from './router.js';
 
 import VueResource from 'vue-resource'
@@ -23,12 +25,17 @@ import './lib/mui/css/mui.css'
 // import './lib/mui/js/webviewGroup.js'
 import './lib/mui/css/icons-extra.css'
 
-import { Header,Swipe,SwipeItem,Button } from 'mint-ui'
+// import { Header,Swipe,SwipeItem,Button,Lazyload } from 'mint-ui'
 
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Header.name,Header)
-Vue.component(Button.name,Button)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Header.name,Header)
+// Vue.component(Button.name,Button)
+// Vue.use(Lazyload) //懒加载必须全部导入 按需导入不生效
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
+
 
 import app from './App.vue'
 

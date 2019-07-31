@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <mt-button type="primary" size="large">发表评论</mt-button>
+      <mt-button type="primary" size="large" @click="postCmoment">发表评论</mt-button>
       <mt-button type="danger" size="large" @click="getMore">加载更多</mt-button>
     </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     return{
       cmtlist:[],//用来接收评论数据的数组
       pageIndex:1,
-      msg:''
+      msg:"1"
     }
   },
   created(){
@@ -35,6 +35,23 @@ export default {
     getMore(){
       this.pageIndex++;
       this.getCmtList()
+    },
+    postCmoment(){
+      console.log(this)
+      if(this.msg.trim().length === 0){
+       return Toast("评论内容不能为空")
+      }
+      // this.$http.post("../../js/post.json"+this.$route.params.id,{content:this.msg}).then(result=>{
+      //   if(result.body.status === 0){
+      //     var cmt = {
+      //       user_name:"匿名用户",
+      //       add_time:Date.now(),
+      //       content:this.msg.trim()
+      //     }
+      //     this.cmtlist.unshift(cmt);
+      //     this.msg="";
+      //   }
+      // })
     },
     getCmtList(){
       this.$http.get("../../js/cmtlist"+this.pageIndex+".json").then(result=>{
