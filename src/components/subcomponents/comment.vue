@@ -2,7 +2,7 @@
     <div class="cmt-container">
       <h3>发表评论</h3>
       <hr>
-      <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120"></textarea>
+      <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120" v-model="msg"></textarea>
       <div class="cmt-list">
         <div class="cmt-item"  v-for="(item,i) in cmtlist" :key="item.user_name">
         <div class="cmt-title" >
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <mt-button type="primary" size="large">发表评论</mt-button>
+      <mt-button type="primary" size="large" @click="postCmoment">发表评论</mt-button>
       <mt-button type="danger" size="large" @click="getMore">加载更多</mt-button>
     </div>
 </template>
@@ -24,7 +24,8 @@ export default {
   data(){
     return{
       cmtlist:[],//用来接收评论数据的数组
-      pageIndex:1
+      pageIndex:1,
+      msg:"1"
     }
   },
   created(){
@@ -34,6 +35,23 @@ export default {
     getMore(){
       this.pageIndex++;
       this.getCmtList()
+    },
+    postCmoment(){
+      console.log(this)
+      if(this.msg.trim().length === 0){
+       return Toast("评论内容不能为空")
+      }
+      // this.$http.post("../../js/post.json"+this.$route.params.id,{content:this.msg}).then(result=>{
+      //   if(result.body.status === 0){
+      //     var cmt = {
+      //       user_name:"匿名用户",
+      //       add_time:Date.now(),
+      //       content:this.msg.trim()
+      //     }
+      //     this.cmtlist.unshift(cmt);
+      //     this.msg="";
+      //   }
+      // })
     },
     getCmtList(){
       this.$http.get("../../js/cmtlist"+this.pageIndex+".json").then(result=>{

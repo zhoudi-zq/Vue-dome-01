@@ -8,6 +8,7 @@ import search from './components/tabbar/search.vue'
 import newlist from './components/news/newlist.vue'
 import newsinfo from './components/news/newsinfo.vue'
 import photolist from './components/photos/photolist.vue'
+import photoinfo from './components/photos/photoinfo.vue'
 var router = new VueRouter({
     routes:[
             {  path:'/',redirect:'/home' },
@@ -17,7 +18,8 @@ var router = new VueRouter({
             {  path:'/search',component:search },
             {  path:'/home/newlist',component:newlist },
             {  path:'/home/newsinfo/:id',component:newsinfo },
-            {  path:'/home/photolist',component:photolist }
+            {  path:'/home/photolist',component:photolist },
+            {  path:'/home/photoinfo',component:photoinfo }
         ],
         linkActiveClass:'mui-active' //覆盖默认的 link-active-class 这个类
     })
