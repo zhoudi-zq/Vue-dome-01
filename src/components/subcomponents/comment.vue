@@ -25,7 +25,7 @@ export default {
     return{
       cmtlist:[],//用来接收评论数据的数组
       pageIndex:1,
-      msg:"1"
+      msg:""
     }
   },
   created(){
@@ -37,7 +37,6 @@ export default {
       this.getCmtList()
     },
     postCmoment(){
-      console.log(this)
       if(this.msg.trim().length === 0){
        return Toast("评论内容不能为空")
       }
