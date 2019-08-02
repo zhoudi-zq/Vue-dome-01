@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { Toast } from 'mint-ui'
 import swipe from '../subcomponents/swipe.vue'
 export default {
   data(){
@@ -40,8 +41,22 @@ export default {
       LunboList:[]
     }
     },
+    created(){
+      this.getLunbotu()
+    },
   methods:{
-
+    getLunbotu(){//获取轮播图数据的方法
+      this.$http.get('../../../js/api.json').then(result=>{
+        if(result.body.status === 0){
+          //成功了
+          this.LunboList = result.body.message;
+          Toast("获取加载轮播图成功")
+        }else{
+          //失败了
+            Toast("获取加载轮播图失败")
+        };
+      })
+    }
   },
   components:{
     swipe
