@@ -23,7 +23,7 @@ var router = new VueRouter({
             {  path:'/home/photolist',component:photolist },
             {  path:'/home/photoinfo',component:photoinfo },
             {  path:'/home/shangpingoumai' ,component:shangpingoumai },
-            {  path:'/home/goodsinfo',component:goodsinfo}
+            {  path:'/home/goodsinfo/:id',component:goodsinfo}
         ],
         linkActiveClass:'mui-active' //覆盖默认的 link-active-class 这个类
     })
