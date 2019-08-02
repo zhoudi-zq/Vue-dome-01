@@ -6,7 +6,7 @@
         </mt-swipe-item>
       </mt-swipe>	 -->
 
-      <swipe :LunboList="LunboList"></swipe>
+      <swipe :LunboList="LunboList" :isfull="true"></swipe>
 
       <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newlist">

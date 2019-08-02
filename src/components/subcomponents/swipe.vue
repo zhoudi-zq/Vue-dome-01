@@ -1,8 +1,8 @@
 <template>
   <div>
     <mt-swipe :auto="4000">
-        <mt-swipe-item v-for="item in LunboList" :key="item.id">
-          <img :src='item["img_url"]' alt="">
+        <mt-swipe-item v-for="item in LunboList" :key="item.id"  >
+          <img :src='item["img_url"]' alt="" :class="{full:isfull}">
         </mt-swipe-item>
       </mt-swipe>	
   </div>
@@ -16,7 +16,8 @@ export default {
     }
   },
   props:[
-    "LunboList"
+    "LunboList",
+    "isfull"
   ],
   methods:{
     
@@ -27,19 +28,22 @@ export default {
   .mint-swipe {
       height: 200px;
       .mint-swipe-item {
-        &:nth-child(1){
-          background-color: red;
-        }
-        &:nth-child(2){
-          background-color: blue;
-        }
-        &:nth-child(3){
-          background-color: green;
-        }
+        text-align: center;
+        // &:nth-child(1){
+        //   background-color: red;
+        // }
+        // &:nth-child(2){
+        //   background-color: blue;
+        // }
+        // &:nth-child(3){
+        //   background-color: green;
+        // }
         img{
-          width: 100%;
           height: 100%;
         }
       }
     }
+    .full{
+          width: 100%;
+        }
 </style>
