@@ -1,11 +1,22 @@
 <template>
   <div>
-    <h1>商品详情</h1>
+    <swipe></swipe>
   </div>
 </template>
 <script>
+import swipe from '../subcomponents/swipe.vue'
 export default {
-  
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+
+  },
+  components:{
+    swipe
+  }
 }
 </script>
 

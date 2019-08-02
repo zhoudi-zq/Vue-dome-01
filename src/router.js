@@ -10,6 +10,7 @@ import newsinfo from './components/news/newsinfo.vue'
 import photolist from './components/photos/photolist.vue'
 import photoinfo from './components/photos/photoinfo.vue'
 import shangpingoumai from './components/shoping/shangpingoumai.vue'
+import goodsinfo from './components/shoping/goodsinfo.vue'
 var router = new VueRouter({
     routes:[
             {  path:'/',redirect:'/home' },

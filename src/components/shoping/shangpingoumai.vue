@@ -1,6 +1,6 @@
 <template>
   <div class="goods-list">
-      <router-link class="goods-item" to="/home/goodsinfo">
+      <router-link class="goods-item" to="/home/goodsinfo" tag="div">
         <img src="https://f10.baidu.com/it/u=2808071685,548568636&fm=72" alt="">
         <h1>神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
@@ -8,7 +8,7 @@
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
       </router-link>
-      <router-link class="goods-item" to="/home/goodsinfo">
+      <router-link class="goods-item" to="/home/goodsinfo" tag="div">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
         <h1>神机诺基亚</h1>
         <div class="info">
@@ -16,7 +16,7 @@
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
       </router-link>
-      <router-link class="goods-item" to="/home/goodsinfo">
+      <router-link class="goods-item" to="/home/goodsinfo" tag="div">
         <img src="https://f10.baidu.com/it/u=2808071685,548568636&fm=72" alt="">
         <h1>神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
@@ -24,7 +24,7 @@
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
       </router-link>
-      <router-link class="goods-item" to="/home/goodsinfo">
+      <router-link class="goods-item" to="/home/goodsinfo" tag="div">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
         <h1>神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
@@ -32,7 +32,7 @@
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
       </router-link>
-      <router-link class="goods-item" to="/home/goodsinfo">
+      <router-link class="goods-item" to="/home/goodsinfo" tag="div">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
         <h1>神机诺基亚</h1>
         <div class="info">
