@@ -1,45 +1,45 @@
 <template>
   <div class="goods-list">
-      <div class="goods-item">
+      <router-link class="goods-item" to="/home/goodsinfo">
         <img src="https://f10.baidu.com/it/u=2808071685,548568636&fm=72" alt="">
         <h1>神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
-      </div>
-      <div class="goods-item">
+      </router-link>
+      <router-link class="goods-item" to="/home/goodsinfo">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
         <h1>神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
-      </div>
-      <div class="goods-item">
+      </router-link>
+      <router-link class="goods-item" to="/home/goodsinfo">
         <img src="https://f10.baidu.com/it/u=2808071685,548568636&fm=72" alt="">
         <h1>神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
-      </div>
-      <div class="goods-item">
+      </router-link>
+      <router-link class="goods-item" to="/home/goodsinfo">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
         <h1>神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
-      </div>
-      <div class="goods-item">
+      </router-link>
+      <router-link class="goods-item" to="/home/goodsinfo">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
         <h1>神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
         </div>
-      </div>
+      </router-link>
     
       
   </div>
