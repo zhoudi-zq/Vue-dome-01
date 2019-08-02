@@ -102,14 +102,13 @@ import mui from '../../lib/mui/js/mui.min.js'
 			box-shadow: 0 0 9px #999;
 			position: relative;
 			color: #fff;
-			text-align: left;
 			.info{
 				max-height: 85px;
 				background: rgba(0, 0, 0, 0.4);
 				position: absolute;
 				bottom: 0;
 				padding: 2px 8px;
-
+				text-align: left;
 				overflow: hidden;
 
 				.info-title{
@@ -124,10 +123,10 @@ import mui from '../../lib/mui/js/mui.min.js'
 				height: 200px;
 				vertical-align: middle;//解决图片三像素的问题
 			}
-		img[lazy=loading] {
+		img[lazy="loading"] {
 			width: 40px;
 			height: 300px;
-			margin: auto;
+			margin:auto;
 			}
 		}
   }
