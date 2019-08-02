@@ -9,6 +9,7 @@ import newlist from './components/news/newlist.vue'
 import newsinfo from './components/news/newsinfo.vue'
 import photolist from './components/photos/photolist.vue'
 import photoinfo from './components/photos/photoinfo.vue'
+import shangpingoumai from './components/shoping/shangpingoumai.vue'
 var router = new VueRouter({
     routes:[
             {  path:'/',redirect:'/home' },
@@ -19,7 +20,8 @@ var router = new VueRouter({
             {  path:'/home/newlist',component:newlist },
             {  path:'/home/newsinfo/:id',component:newsinfo },
             {  path:'/home/photolist',component:photolist },
-            {  path:'/home/photoinfo',component:photoinfo }
+            {  path:'/home/photoinfo',component:photoinfo },
+            {  path:'/home/shangpingoumai' ,component:shangpingoumai }
         ],
         linkActiveClass:'mui-active' //覆盖默认的 link-active-class 这个类
     })
