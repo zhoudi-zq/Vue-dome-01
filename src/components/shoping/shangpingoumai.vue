@@ -2,7 +2,7 @@
   <div class="goods-list">
       <div class="goods-item">
         <img src="https://f10.baidu.com/it/u=2808071685,548568636&fm=72" alt="">
-        <h1>神机诺基亚</h1>
+        <h1>神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
@@ -18,7 +18,7 @@
       </div>
       <div class="goods-item">
         <img src="https://f10.baidu.com/it/u=2808071685,548568636&fm=72" alt="">
-        <h1>神机诺基亚</h1>
+        <h1>神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
@@ -26,7 +26,7 @@
       </div>
       <div class="goods-item">
         <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=394841827,3228350768&fm=15&gp=0.jpg" alt="">
-        <h1>神机诺基亚</h1>
+        <h1>神机诺基亚神机诺基亚神机诺基亚</h1>
         <div class="info">
           <p class="price"><span class="new">￥2199</span><span class="old">￥2899</span></p>
           <p class="sell"><span>热卖中</span><span>剩60件</span></p>
@@ -65,17 +65,19 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 300px;
+      min-height: 350px;
       box-shadow: 0 0 6px #ccc;
       img{
         width: 100%;
         height: 200px;
       }
       h1{
-        font-size: 18px;
-        color: red;
+
+        font-size: 16px;
         font-weight: bold;
         text-align: center;
+        overflow: hidden;
+        padding: 2px;
       }
       .info{
         background-color: #ccc;
