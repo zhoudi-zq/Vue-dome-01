@@ -1,6 +1,6 @@
 <template>
   <div class="goodsinfo-container"> 
-    
+    <!-- 商品轮播图区域 -->
     <div class="mui-card">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
@@ -8,20 +8,44 @@
 					</div>
 				</div>
 			</div>
+
+      <!-- 商品购买区域 -->
 			<div class="mui-card">
-				<div class="mui-card-header">页眉</div>
+				<div class="mui-card-header">小米Note 16G双网通版</div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-						包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
+						<p><span>市场价：<del>￥2699</del>&nbsp;&nbsp;</span>销售价：<span class="now-price">￥2199</span></p>
+            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox></numbox></p>
+            <p>
+              <mt-button type="primary" size="small">立即购买</mt-button>
+              <mt-button type="danger" size="small">加入购物车</mt-button>
+            </p>
 					</div>
 				</div>
-				<div class="mui-card-footer">页脚</div>
+			</div>
+
+      <!--  -->
+      			<div class="mui-card">
+				<div class="mui-card-header">商品参数</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+              <p>商品货号：</p>
+              <p>库存情况：</p>
+              <p>上架时间：</p>
+              <div class="mui-card-footer">
+                <mt-button type="primary" size="large">图文介绍</mt-button>
+                <mt-button type="danger" size="large">商品讨论</mt-button>
+              </div>
+              
+					</div>
+				</div>
 			</div>
   </div>
 </template>
 <script>
 import { Toast } from 'mint-ui'
 import swipe from '../subcomponents/swipe.vue'
+import numbox from '../subcomponents/numbox.vue'
 export default {
   data(){
     return{
@@ -46,13 +70,33 @@ export default {
     }
   },
   components:{
-    swipe
+    swipe,
+    numbox
   }
 }
 </script>
 
 <style lang="less" scoped>
     .goodsinfo-container{
+      background-color: #eee;
+      overflow: hidden;
       
+      .now-price{
+        color:red;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .num{
+        display: flex;
+        align-items: center;
+      
+      }
+      .mui-card-footer{
+        display: block;
+        button{
+          margin: 13px 0;
+        }
+
+      }
     }
 </style>
