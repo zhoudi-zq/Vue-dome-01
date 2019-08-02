@@ -33,8 +33,8 @@
               <p>库存情况：{{goodsinfo.kucun}}</p>
               <p>上架时间：{{ goodsinfo.add_time | dataFormat }}</p>
               <div class="mui-card-footer">
-                <mt-button type="primary" size="large">图文介绍</mt-button>
-                <mt-button type="danger" size="large">商品讨论</mt-button>
+                <mt-button type="primary" size="large" plain @click="goTuWenInfo">图文介绍</mt-button>
+                <mt-button type="danger" size="large" plain >商品讨论</mt-button>
               </div>
               
 					</div>
@@ -78,6 +78,9 @@ export default {
           this.goodsinfo = result.body.message[this.id]
         }
       })
+    },
+    goTuWenInfo(){
+
     }
   },
   components:{
