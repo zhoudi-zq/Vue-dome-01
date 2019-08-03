@@ -2,8 +2,8 @@
     <div class="app-container">
         
         <mt-header fixed title="黑马程序员Vue项目">
-					<span slot="left">
-    					<mt-button icon="back" @click="goBack" v-show="Falg">返回</mt-button>
+					<span slot="left" @click="goBack" v-show="Falg">
+    					<mt-button icon="back" >返回</mt-button>
   				</span>
 				</mt-header>
 
