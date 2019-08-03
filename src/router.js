@@ -11,6 +11,8 @@ import photolist from './components/photos/photolist.vue'
 import photoinfo from './components/photos/photoinfo.vue'
 import shangpingoumai from './components/shoping/shangpingoumai.vue'
 import goodsinfo from './components/shoping/goodsinfo.vue'
+import goodstuwen from './components/shoping/goodstuwen.vue'
+import goodstaolun from './components/shoping/goodstaolun.vue'
 var router = new VueRouter({
     routes:[
             {  path:'/',redirect:'/home' },
@@ -23,7 +25,9 @@ var router = new VueRouter({
             {  path:'/home/photolist',component:photolist },
             {  path:'/home/photoinfo',component:photoinfo },
             {  path:'/home/shangpingoumai' ,component:shangpingoumai },
-            {  path:'/home/goodsinfo/:id',component:goodsinfo}
+            {  path:'/home/goodsinfo/:id',component:goodsinfo},
+            {  path:'/home/goodstuwen/:id',component:goodstuwen,name:"goodstuwen"},
+            {  path:'/home/goodstaolun/:id',component:goodstaolun,name:"goodstaolun"}
         ],
         linkActiveClass:'mui-active' //覆盖默认的 link-active-class 这个类
     })

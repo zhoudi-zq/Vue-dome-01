@@ -1,5 +1,12 @@
 <template>
   <div class="goodsinfo-container"> 
+    <transition 
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter" >
+        <div class="ball" v-show="flag">
+        </div>
+    </transition>
     <!-- 商品轮播图区域 -->
     <div class="mui-card">
 				<div class="mui-card-content">
@@ -18,7 +25,7 @@
             <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox></numbox></p>
             <p>
               <mt-button type="primary" size="small">立即购买</mt-button>
-              <mt-button type="danger" size="small">加入购物车</mt-button>
+              <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
             </p>
 					</div>
 				</div>
@@ -33,25 +40,27 @@
               <p>库存情况：{{goodsinfo.kucun}}</p>
               <p>上架时间：{{ goodsinfo.add_time | dataFormat }}</p>
               <div class="mui-card-footer">
-                <mt-button type="primary" size="large" plain @click="goTuWenInfo">图文介绍</mt-button>
-                <mt-button type="danger" size="large" plain >商品讨论</mt-button>
+                <mt-button type="primary" size="large" plain @click="goTuWenInfo(id)">图文介绍</mt-button>
+                <mt-button type="danger" size="large" plain @click="gotaolunInfo(id)">商品讨论</mt-button>
               </div>
               
 					</div>
 				</div>
 			</div>
+      
   </div>
 </template>
 <script>
 import { Toast } from 'mint-ui'
 import swipe from '../subcomponents/swipe.vue'
 import numbox from '../subcomponents/numbox.vue'
-export default {
+export default{
   data(){
     return{
       LunboList:[],
       goodsinfo:{},
-      id:this.$route.params.id
+      id:this.$route.params.id,
+      flag:false
     }
     },
     created(){
@@ -79,8 +88,26 @@ export default {
         }
       })
     },
-    goTuWenInfo(){
-
+    goTuWenInfo(id){
+      this.$router.push({name:"goodstuwen",params:{ id }})
+    },
+    gotaolunInfo(id){
+      this.$router.push({name:"goodstaolun",params:{ id }})
+    },
+    addToShopCar(){
+      this.flag=!this.flag;
+    },
+    beforeEnter(el){
+      el.style.transform = "translate(0, 0)";
+    },
+    enter(el,done){
+      el.offsetWidth;
+      el.style.transform = "translate (93px, 200px)";
+      el.style.transition = "all,1s,ease";
+      done();
+    },
+    afterEnter(el){
+      this.flag=!this.flag;
     }
   },
   components:{
@@ -91,9 +118,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    
     .goodsinfo-container{
       background-color: #eee;
       overflow: hidden;
+      // position: relative;
       
       .now-price{
         color:red;
@@ -111,6 +140,16 @@ export default {
           margin: 13px 0;
         }
 
+      }
+      .ball{
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        left: 148px;
+        top: 406px;
+        z-index: 222;
       }
     }
 </style>
