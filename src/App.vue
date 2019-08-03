@@ -47,9 +47,9 @@
 				 this.$router.go(-1);
 			 }
 		 },
-		 watch:{
-			 "$router.path":function(newvalue){
-				 if(newvalue === "/home"){
+		 watch: {
+			 '$route.path':function(newvalue){
+				 if(newvalue === '/home'){
 					 this.Falg = false;
 				 }else{
 					 this.Falg = true;
