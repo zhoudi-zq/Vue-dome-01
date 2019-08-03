@@ -1,7 +1,13 @@
 <template>
     <div class="app-container">
         
-        <mt-header fixed title="黑马程序员Vue项目"></mt-header>
+        <mt-header fixed title="黑马程序员Vue项目">
+					<span slot="left">
+    					<mt-button icon="back" @click="goBack" v-show="Falg">返回</mt-button>
+  				</span>
+				</mt-header>
+
+				<!-- <mt-header fixed title="固定在顶部"></mt-header> -->
 				<transition>
 						<router-view></router-view>
 				</transition>
@@ -30,11 +36,31 @@
 
 
 <script>
-   
+   export default{
+		 data(){
+			 return{
+				 Falg:false
+			 }
+		 },
+		 methods:{
+			 goBack(){
+				 this.$router.go(-1);
+			 }
+		 },
+		 watch:{
+			 "$router.path":function(newvalue){
+				 if(newvalue === "/home"){
+					 this.Falg = false;
+				 }else{
+					 this.Falg = true;
+				 }
+			 }
+		 }
+	 }
 </script>
+<style lang="less" scoped>
 
-<style  scoped>
-.v-enter{
+		.v-enter{
 	opacity: 0;
 	transform: translateX(100%);
 }
@@ -80,7 +106,9 @@
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+	}
+
+
 </style>
 
 
