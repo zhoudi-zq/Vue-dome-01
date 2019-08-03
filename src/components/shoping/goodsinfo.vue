@@ -107,7 +107,7 @@ export default{
       done();
     },
     afterEnter(el){
-      this.flag=!this.flag;
+      this.flag=! this.flag; 
     }
   },
   components:{
