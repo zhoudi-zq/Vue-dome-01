@@ -1,20 +1,21 @@
 <template>
+        <!-- 加入购物车小球 -->
   <div class="goodsinfo-container"> 
     <transition 
         @before-enter="beforeEnter"
         @enter="enter"
         @after-enter="afterEnter" >
-        <div class="ball" v-show="flag">
+        <div class="ball" v-show="flag" ref="ball">
         </div>
     </transition>
     <!-- 商品轮播图区域 -->
     <div class="mui-card">
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
-						<swipe :LunboList="LunboList" :isfull="false"></swipe>
-					</div>
+			<div class="mui-card-content">
+				<div class="mui-card-content-inner">
+					<swipe :LunboList="LunboList" :isfull="false"></swipe>
 				</div>
 			</div>
+		</div>
 
       <!-- 商品购买区域 -->
 			<div class="mui-card">
@@ -22,7 +23,7 @@
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
 						<p><span>市场价：<del>￥{{ goodsinfo.market_price }}</del>&nbsp;&nbsp;</span>销售价：<span class="now-price">￥{{ goodsinfo.sell_price }}</span></p>
-            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox></numbox></p>
+            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox @getCount="getSelectedCount" :maxcount="goodsinfo.kucun"></numbox></p>
             <p>
               <mt-button type="primary" size="small">立即购买</mt-button>
               <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
@@ -32,7 +33,7 @@
 			</div>
 
       <!--  -->
-      			<div class="mui-card">
+      <div class="mui-card">
 				<div class="mui-card-header">商品参数</div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
@@ -43,11 +44,9 @@
                 <mt-button type="primary" size="large" plain @click="goTuWenInfo(id)">图文介绍</mt-button>
                 <mt-button type="danger" size="large" plain @click="gotaolunInfo(id)">商品讨论</mt-button>
               </div>
-              
 					</div>
 				</div>
 			</div>
-      
   </div>
 </template>
 <script>
@@ -60,7 +59,9 @@ export default{
       LunboList:[],
       goodsinfo:{},
       id:this.$route.params.id,
-      flag:false
+      flag:false,
+      selectedCount:1
+
     }
     },
     created(){
@@ -96,18 +97,35 @@ export default{
     },
     addToShopCar(){
       this.flag=!this.flag;
+      var goodsInfos = {
+        id:this.id,
+        count:this.selectedCount,
+        price:this.goodsinfo.sell_price,
+        selected:true
+        };
+      this.$store.commit('addToCar',goodsInfos);
+      
+
     },
     beforeEnter(el){
       el.style.transform = "translate(0, 0)";
     },
     enter(el,done){
       el.offsetWidth;
-      el.style.transform = "translate (93px, 200px)";
-      el.style.transition = "all,1s,ease";
+      // 获取小球的位置
+      const ballPosition = this.$refs.ball.getBoundingClientRect(); 
+      const badgePosition = document.getElementById("badge").getBoundingClientRect();
+      var x = badgePosition.left - ballPosition.left;
+      var y = badgePosition.top - ballPosition.top;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+      el.style.transition = "all 0.5s cubic-bezier(.4,-0.5,0.5,.68)";
       done();
     },
     afterEnter(el){
-      this.flag=! this.flag; 
+      this.flag=! this.flag;
+  },
+    getSelectedCount(count){
+      this.selectedCount = count
     }
   },
   components:{
@@ -149,7 +167,8 @@ export default{
         position: absolute;
         left: 148px;
         top: 406px;
-        z-index: 222;
+        z-index: 999;
+        // transform:translate(87px,212px);
       }
     }
 </style>

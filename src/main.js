@@ -1,7 +1,7 @@
 
 import Vue from 'vue';
-
-//导入MUI的样式
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
 
 import VueRouter from 'vue-router';
@@ -38,7 +38,41 @@ Vue.use(MintUI)
 
 
 import app from './App.vue'
-
+var store = new Vuex.Store({
+    state: {
+        car:[]
+    },
+    mutations: {
+        addToCar(state, goodsInfos){
+            //点击加入购物车，把商品信息保存到store 中的 car 上
+            //分析：
+            //1.    如果购物车中，之前就已经有了这个对应的商品了，那么只要更新数量即可，否则把这条goodsinfo push到car数组中
+            var flag = false;
+            state.car.some(item => {
+                if(item.id == goodsInfos.id){
+                    item.count += parseInt(goodsInfos.count);
+                    flag = true;
+                    return true;
+                }
+            });
+            // 如果最终循环完毕 得到的 falg 还是false 则把商品的数据直接push到 car中
+            if(!flag){
+                state.car.push(goodsInfos)
+            }
+        
+        
+        }
+    },
+    getters: {
+        getAllCount(state){
+            var c = 0;
+            state.car.forEach(item => {
+                c += item.count
+            });
+            return c;
+        }
+    }
+})
 
 
 
@@ -49,5 +83,6 @@ var vm = new Vue({
         msg:'123'
     },
     render:c => c(app),
-    router //将路由对象挂载到vm上
+    router ,//将路由对象挂载到vm上
+    store   //将vuex创建的 store 挂载到vm 实例上
 })
