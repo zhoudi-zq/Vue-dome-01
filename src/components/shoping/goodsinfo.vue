@@ -23,7 +23,7 @@
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
 						<p><span>市场价：<del>￥{{ goodsinfo.market_price }}</del>&nbsp;&nbsp;</span>销售价：<span class="now-price">￥{{ goodsinfo.sell_price }}</span></p>
-            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox @getCount="getSelectedCount" :maxcount="goodsinfo.kucun" :numboxid="goodsinfo.id"></numbox></p>
+            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox :count="selectedCount" :maxcount="goodsinfo.kucun" :numboxid="goodsinfo.id"></numbox></p>
             <p>
               <mt-button type="primary" size="small">立即购买</mt-button>
               <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>

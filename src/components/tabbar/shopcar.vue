@@ -22,7 +22,7 @@
     <!-- 结算区域 -->
       <div class="mui-card">
 				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
+					<div class="mui-card-content-inner jiesuan">
             <div class="left">
               <p>总计（不含运费）</p>
               <p>已勾选商品 <span class="red">0</span> 件，总价 <span class="red">￥0</span></p>
@@ -69,7 +69,7 @@ export default {
 
 
       this.goodslist = this.$store.state.car;
-      console.log(this.goodslist);
+      // console.log(this.goodslist);
       // console.log( localStorage.car);
       
     },
@@ -120,6 +120,25 @@ export default {
             }
             }
            
+        }
+        .jiesuan{
+          display: flex;
+          justify-content: space-between;
+          align-content: center;
+          .red{
+            color: red;
+            font-weight: bold;
+            font-size: 16px;
+          }
+          .left{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: center;
+          }
+          .right{
+            text-align: center;
+          }
         }
     }
 }
