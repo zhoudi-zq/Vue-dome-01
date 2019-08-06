@@ -11,7 +11,7 @@
                 <h1>{{  item.title }}</h1>
                 <p>
                   <span class="price">￥{{ item.price }}</span>
-                  <shopcarnumbox :count="item.count" :maxcount="goodslist[item.id].maxcount"></shopcarnumbox>
+                  <!-- <shopcarnumbox :count="item.count" :maxcount="goodslist[item.id].maxcount"></shopcarnumbox> -->
                   <a href="#" class="del">删除{{ goodslist[item.id].maxcount}}</a>
                 </p>
               </div>
