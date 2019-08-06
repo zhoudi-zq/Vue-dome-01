@@ -57,6 +57,7 @@ var store = new Vuex.Store({
                     item.count += parseInt(goodsInfos.count);
                     item.img_url = goodsInfos.img_url;
                     item.title = goodsInfos.title;
+                    item.kucun = goodsInfos.maxcount;
                     flag = true;
                     return true;
                 }
@@ -68,7 +69,24 @@ var store = new Vuex.Store({
         
             //当更新car 之后 把car数组存储到本地localstorage 中
             localStorage.setItem('car',JSON.stringify(state.car))
-        }
+        },
+        updateShopCar(state,goodsInfos){
+            state.car.some(item=>{
+                if(item.id == goodsInfos.id){
+                    item.count = parseInt(goodsInfos.count);
+                };
+                localStorage.setItem('car',JSON.stringify(state.car))
+            })
+        },
+        delGoods(state,id){
+            state.car.some((item,i)=> {
+                if (item.id == id){
+                    state.car.splice(i,1);
+                    return true;
+                }
+            }}
+            );
+        
     },
     getters: {
         getAllCount(state){

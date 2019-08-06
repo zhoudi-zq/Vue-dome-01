@@ -2,7 +2,7 @@
   <div>
     <div class="mui-numbox" data-numbox-min='1' :data-numbox-max='maxcount'>
 					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-					<input id="test" class="mui-input-numbox" type="number" value="1" @change="countChanged" ref="numbox" />
+					<input id="test" class="mui-input-numbox" type="number" :value="this.$store.getters.getCount[numboxid]" @change="countChanged" ref="numbox" />
 					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 			</div>
   </div>
@@ -17,7 +17,8 @@ export default {
      }
   },
   props:[
-    "maxcount"
+    "maxcount",
+    "numboxid"
   ],
   mounted() {
     //初始化数字选择框组件

@@ -2,7 +2,7 @@
 <div class="shopcar-container">
       <div class="goods-list">
       <!-- 商品列表项区域 -->
-      <div class="mui-card" v-for="item in goodslist" :key="item.id">
+      <div class="mui-card" v-for="(item,i) in goodslist" :key="item.id">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
               <mt-switch></mt-switch>
@@ -11,8 +11,8 @@
                 <h1>{{  item.title }}</h1>
                 <p>
                   <span class="price">￥{{ item.price }}</span>
-                  <!-- <shopcarnumbox :count="item.count" :maxcount="goodslist[item.id].maxcount"></shopcarnumbox> -->
-                  <a href="#" class="del">删除{{ goodslist[item.id].maxcount}}</a>
+                  <shopcarnumbox :id="item.id" :count="$store.getters.getCount[item.id]" :maxcount="$store.getters.getMaxCount[item.id]"></shopcarnumbox>
+                  <a href="#" class="del" @click="del(item.id,i)">删除</a>
                 </p>
               </div>
               </div>
@@ -66,6 +66,10 @@ export default {
       console.log(this.goodslist);
       // console.log( localStorage.car);
       
+    },
+    del(id,index){
+      this.goodslist.splice(index,1);
+      this.$store.commit("delGoods",id)
     }
   },
   components:{

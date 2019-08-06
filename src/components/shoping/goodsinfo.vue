@@ -23,7 +23,7 @@
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
 						<p><span>市场价：<del>￥{{ goodsinfo.market_price }}</del>&nbsp;&nbsp;</span>销售价：<span class="now-price">￥{{ goodsinfo.sell_price }}</span></p>
-            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox @getCount="getSelectedCount" :maxcount="goodsinfo.kucun"></numbox></p>
+            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox @getCount="getSelectedCount" :maxcount="goodsinfo.kucun" :numboxid="goodsinfo.id"></numbox></p>
             <p>
               <mt-button type="primary" size="small">立即购买</mt-button>
               <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
@@ -73,8 +73,8 @@ export default{
       this.$http.get('../../../js/goodsphoto.json').then(result=>{
         if(result.body.status === 0){
           //成功了
-          // this.LunboList = result.body.message;
-          Toast("获取加载轮播图成功")
+          this.LunboList = result.body.message;
+          // Toast("获取加载轮播图成功")
         }else{
           //失败了
             Toast("获取加载轮播图失败")
@@ -103,7 +103,7 @@ export default{
         count:this.selectedCount,
         price:this.goodsinfo.sell_price,
         img_url:this.goodsinfo.img_url,
-        maxcount:this.goodsinfo.kucun,
+        maxcount:this.goodsinfo.kucun-this.selectedCount,
         selected:true
         };
       this.$store.commit('addToCar',goodsInfos);
