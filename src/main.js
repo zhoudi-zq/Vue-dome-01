@@ -57,7 +57,6 @@ var store = new Vuex.Store({
                     item.count += parseInt(goodsInfos.count);
                     item.img_url = goodsInfos.img_url;
                     item.title = goodsInfos.title;
-                    item.maxcount = goodsInfos.maxcount;
                     flag = true;
                     return true;
                 }

@@ -2,7 +2,8 @@
 
     <div class="mui-numbox" data-numbox-min='1' :data-numbox-max='maxcount' style="height:23px;">
 					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-					<input id="test" class="mui-input-numbox" type="number"  ref="numbox" :value="this.id" />
+					
+          <input id="test" class="mui-input-numbox" type="number" :value="count" />
 					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 			</div>
 
@@ -10,6 +11,7 @@
 
 <script>
 import mui from '../../lib/mui/js/mui.min.js'
+import func from '../../../vue-temp/vue-editor-bridge';
 export default {
   data(){
     return{
@@ -18,7 +20,7 @@ export default {
   },
   props:[
     "maxcount",
-    "id"
+    "count"
   ],
   mounted() {
     //初始化数字选择框组件
@@ -27,16 +29,14 @@ export default {
   created(){
   },
   methods:{
-    countChanged(){
-      
-    }
+   
   },
   watch:{
-    maxcount:function(newvalue,oldvalue){
-      //调用js api方法
-      mui(".mui-numbox").numbox().setOption("max",newvalue)
+    maxcount:function(){
+
     }
   }
+
 }
 
 </script>

@@ -11,8 +11,8 @@
                 <h1>{{  item.title }}</h1>
                 <p>
                   <span class="price">￥{{ item.price }}</span>
-                  <shopcarnumbox :id="this.$store.getters.getValue[item.id]"></shopcarnumbox>
-                  <a href="#" class="del">删除{{ this.$store.getters.getValue[item.id] }}</a>
+                  <shopcarnumbox :count="item.count" :maxcount="goodslist[item.id].maxcount"></shopcarnumbox>
+                  <a href="#" class="del">删除{{ goodslist[item.id].maxcount}}</a>
                 </p>
               </div>
               </div>
@@ -63,7 +63,9 @@ export default {
 
 
       this.goodslist = this.$store.state.car;
-      // console.log(this.goodslist)
+      console.log(this.goodslist);
+      // console.log( localStorage.car);
+      
     }
   },
   components:{

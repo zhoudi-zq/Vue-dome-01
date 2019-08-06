@@ -73,7 +73,7 @@ export default{
       this.$http.get('../../../js/goodsphoto.json').then(result=>{
         if(result.body.status === 0){
           //成功了
-          this.LunboList = result.body.message;
+          // this.LunboList = result.body.message;
           Toast("获取加载轮播图成功")
         }else{
           //失败了
