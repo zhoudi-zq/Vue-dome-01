@@ -3,6 +3,8 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
+var car = JSON.parse(localStorage.getItem('car') || '[]')
+
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -37,10 +39,12 @@ import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
 
+
+
 import app from './App.vue'
 var store = new Vuex.Store({
     state: {
-        car:[]
+        car:car
     },
     mutations: {
         addToCar(state, goodsInfos){
@@ -51,6 +55,9 @@ var store = new Vuex.Store({
             state.car.some(item => {
                 if(item.id == goodsInfos.id){
                     item.count += parseInt(goodsInfos.count);
+                    item.img_url = goodsInfos.img_url;
+                    item.title = goodsInfos.title;
+                    item.maxcount = goodsInfos.maxcount;
                     flag = true;
                     return true;
                 }
@@ -60,7 +67,8 @@ var store = new Vuex.Store({
                 state.car.push(goodsInfos)
             }
         
-        
+            //当更新car 之后 把car数组存储到本地localstorage 中
+            localStorage.setItem('car',JSON.stringify(state.car))
         }
     },
     getters: {
@@ -70,7 +78,21 @@ var store = new Vuex.Store({
                 c += item.count
             });
             return c;
-        }
+        },
+        getCount(state){
+            var o = {};
+            state.car.forEach(item => {
+                o[item.id] = item.count;
+            });
+            return o;
+      },
+      getMaxCount(state){
+        var m = {};
+        state.car.forEach(item => {
+            m[item.id] = item.maxcount;
+        });
+        return m;
+  }
     }
 })
 

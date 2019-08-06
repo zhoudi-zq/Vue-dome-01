@@ -99,8 +99,11 @@ export default{
       this.flag=!this.flag;
       var goodsInfos = {
         id:this.id,
+        title:this.goodsinfo.title,
         count:this.selectedCount,
         price:this.goodsinfo.sell_price,
+        img_url:this.goodsinfo.img_url,
+        maxcount:this.goodsinfo.kucun,
         selected:true
         };
       this.$store.commit('addToCar',goodsInfos);
