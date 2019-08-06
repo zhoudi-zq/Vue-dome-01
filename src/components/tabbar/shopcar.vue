@@ -23,7 +23,13 @@
       <div class="mui-card">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-            <h1>结算区域</h1>
+            <div class="left">
+              <p>总计（不含运费）</p>
+              <p>已勾选商品 <span class="red">0</span> 件，总价 <span class="red">￥0</span></p>
+            </div>
+            <div class="right">
+               <mt-button type="danger">去结算</mt-button>
+            </div>
           </div>
 				</div>
 			</div>
@@ -85,6 +91,7 @@ export default {
       .goods-list {
         .mui-card-content-inner{
           display: flex;
+          // justify-content: center;
           align-items: center;
              h1{
                 font-size: 14px;
@@ -114,7 +121,6 @@ export default {
             }
            
         }
-       
     }
 }
   

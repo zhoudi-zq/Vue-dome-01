@@ -83,9 +83,10 @@ var store = new Vuex.Store({
                 if (item.id == id){
                     state.car.splice(i,1);
                     return true;
-                }
-            }}
-            );
+                };
+                localStorage.setItem('car',JSON.stringify(state.car))
+            })
+        }
         
     },
     getters: {

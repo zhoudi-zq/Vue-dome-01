@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mui-numbox" data-numbox-min='1' :data-numbox-max="maxcount">
+    <div class="mui-numbox" data-numbox-min='1' :data-numbox-max="maxcount" style="height:25px;">
 					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
 					<input id="test" class="mui-input-numbox" type="number" :value="count" @change="countChanged" ref="shopcarnumbox" />
 					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
