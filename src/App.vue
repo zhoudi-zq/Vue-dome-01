@@ -30,11 +30,8 @@
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
 		</nav>
-
     </div>
 </template>
-
-
 <script>
    export default{
 		 data(){
