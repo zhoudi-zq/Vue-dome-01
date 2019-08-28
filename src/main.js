@@ -66,8 +66,17 @@ var store = new Vuex.Store({
                     console.log(item.count)
                     item.optional=item.kucun-item.count
                 };
-                localStorage.setItem('car',JSON.stringify(state.car))
             })
+            localStorage.setItem('car',JSON.stringify(state.car))
+        },
+        updateSelected(state,info){
+            state.car.some(item=>{
+                if(item.id == info.id){
+                    item.selected = info.selected
+                    return
+                }
+            });
+            localStorage.setItem('car',JSON.stringify(state.car))
         },
         removeFromCar(state,id){
             state.car.some((item,i)=> {
@@ -102,6 +111,13 @@ var store = new Vuex.Store({
                 if(item.selected){
                     c += item.count*item.price
                 }
+            });
+            return c;
+        },
+        getSelected(state){
+            var c = {};
+            state.car.forEach(item => {
+                c[item.id] = item.selected;
             });
             return c;
         },

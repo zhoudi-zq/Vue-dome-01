@@ -80,6 +80,10 @@
 				overflow-x: hidden;
 		}
 
+		.mint-header .mint-button{
+			line-height: 40px;
+		}
+
 .mui-bar-tab .mui-tab-item-myself.mui-active {
     color: #007aff;
 }

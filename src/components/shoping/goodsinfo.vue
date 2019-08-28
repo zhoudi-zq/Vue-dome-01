@@ -112,8 +112,6 @@ export default{
         selected:true
         };
       this.$store.commit('addToCar',goodsInfos);
-      
-
     },
     beforeEnter(el){
       el.style.transform = "translate(0, 0)";
