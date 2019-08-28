@@ -8,6 +8,7 @@
           "add_time":"2015-04-16T03:50:28.000Z",
           "goods_no":"SD3973042341",
           "kucun":20,
+          "selectedCount":1,
           "market_price":"369",
           "sell_price":"289",
           "img_url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3241874733,1857882030&fm=15&gp=0.jpg"
@@ -18,6 +19,7 @@
           "add_time":"2015-04-16T03:50:28.000Z",
           "goods_no":"SD3973042342",
           "kucun":20,
+          "selectedCount":1,
           "market_price":888,
           "sell_price":666,
           "img_url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4252675326,3997100876&fm=15&gp=0.jpg"
@@ -27,6 +29,7 @@
           "title":"1季度多家房企利润跌幅超50%,库存促销战打响!!!",
           "add_time":"2015-04-16T03:50:28.000Z",
           "goods_no":"SD3973042343",
+          "selectedCount":1,
           "kucun":20,
           "market_price":999,
           "sell_price":788,
@@ -37,6 +40,7 @@
           "title":"1季度多家房企利润跌幅超50%,库存促销战打响!!!",
           "add_time":"2015-04-16T03:50:28.000Z",
           "goods_no":"SD3973042344",
+          "selectedCount":1,
           "kucun":20,
           "market_price":1369,
           "sell_price":1289,

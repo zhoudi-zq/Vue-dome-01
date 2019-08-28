@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="mui-numbox" data-numbox-min='1' :data-numbox-max='maxcount'>
+    <div class="mui-numbox" data-numbox-min='1' :data-numbox-max="numMaxCount">
 					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-					<input id="test" class="mui-input-numbox" type="number" :value="count" @change="countChanged" ref="numbox" />
+					<input id="test" class="mui-input-numbox" ref="numbox" type="number" @change="countChanged"/>
 					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 			</div>
   </div>
@@ -13,12 +13,12 @@ import mui from '../../lib/mui/js/mui.min.js'
 export default {
   data(){
     return{
-
+      
      }
   },
   props:[
-    "maxcount",
-    "numboxid",
+    "numMaxCount",
+    "numboxId",
     "count"
   ],
   mounted() {
@@ -28,16 +28,18 @@ export default {
   methods:{
     countChanged(){
       //每当文本框的数据被修改的时候 立即把最新的数据通过事件调用传递给父组件
-      // console.log(this.$refs.numbox.value)
-      this.$emit("getCount",parseInt(this.$refs.numbox.value))
+      // console.log(parseInt(this.$refs.numbox.value))
+      // this.$emit("getCount",parseInt(this.$refs.numbox.value))
+     this.$emit("getCount", parseInt(this.$refs.numbox.value))
     }
   },
-  watch:{
-    maxcount:function(newvalue,oldvalue){
+    watch:{
+    numMaxCount:function(newvalue,oldvalue){
       //调用js api方法
       mui(".mui-numbox").numbox().setOption("max",newvalue)
     }
   }
+  
 }
 </script>
 

@@ -23,7 +23,7 @@
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
 						<p><span>市场价：<del>￥{{ goodsinfo.market_price }}</del>&nbsp;&nbsp;</span>销售价：<span class="now-price">￥{{ goodsinfo.sell_price }}</span></p>
-            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox :count="selectedCount" :maxcount="goodsinfo.kucun" :numboxid="goodsinfo.id"></numbox></p>
+            <p class="num">购买数量&nbsp;:&nbsp;&nbsp;<numbox v-model="selectedCount" :numMaxCount="numMax" :numboxId="this.id" @getCount="getCount"></numbox></p>
             <p>
               <mt-button type="primary" size="small">立即购买</mt-button>
               <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
@@ -38,7 +38,7 @@
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
               <p>商品货号：{{ goodsinfo.goods_no }}</p>
-              <p>库存情况：{{goodsinfo.kucun}}</p>
+              <p>库存情况：{{numMax}}</p>
               <p>上架时间：{{ goodsinfo.add_time | dataFormat }}</p>
               <div class="mui-card-footer">
                 <mt-button type="primary" size="large" plain @click="goTuWenInfo(id)">图文介绍</mt-button>
@@ -53,6 +53,7 @@
 import { Toast } from 'mint-ui'
 import swipe from '../subcomponents/swipe.vue'
 import numbox from '../subcomponents/numbox.vue'
+// import func from '../../../vue-temp/vue-editor-bridge';
 export default{
   data(){
     return{
@@ -61,7 +62,6 @@ export default{
       id:this.$route.params.id,
       flag:false,
       selectedCount:1
-
     }
     },
     created(){
@@ -95,15 +95,20 @@ export default{
     gotaolunInfo(id){
       this.$router.push({name:"goodstaolun",params:{ id }})
     },
+    getCount(count){
+      this.selectedCount = count;
+      console.log(count);
+    },
     addToShopCar(){
       this.flag=!this.flag;
-      var goodsInfos = {
+      let goodsInfos = {
         id:this.id,
         title:this.goodsinfo.title,
         count:this.selectedCount,
         price:this.goodsinfo.sell_price,
         img_url:this.goodsinfo.img_url,
-        maxcount:this.goodsinfo.kucun-this.selectedCount,
+        kucun:this.goodsinfo.kucun,
+        selectedCount:this.selectedCount,
         selected:true
         };
       this.$store.commit('addToCar',goodsInfos);
@@ -118,17 +123,19 @@ export default{
       // 获取小球的位置
       const ballPosition = this.$refs.ball.getBoundingClientRect(); 
       const badgePosition = document.getElementById("badge").getBoundingClientRect();
-      var x = badgePosition.left - ballPosition.left;
-      var y = badgePosition.top - ballPosition.top;
+      let x = badgePosition.left - ballPosition.left;
+      let y = badgePosition.top - ballPosition.top;
       el.style.transform = `translate(${x}px, ${y}px)`;
       el.style.transition = "all 0.5s cubic-bezier(.4,-0.5,0.5,.68)";
       done();
     },
     afterEnter(el){
       this.flag=! this.flag;
+  }
   },
-    getSelectedCount(count){
-      this.selectedCount = count
+  computed:{
+    numMax : function(){
+      return this.$store.getters.getKuCun[this.id]-this.$store.getters.getCount[this.id]
     }
   },
   components:{
@@ -136,6 +143,7 @@ export default{
     numbox
   }
 }
+
 </script>
 
 <style lang="less" scoped>

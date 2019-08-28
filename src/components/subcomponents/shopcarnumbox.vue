@@ -2,7 +2,7 @@
   <div>
     <div class="mui-numbox" data-numbox-min='1' :data-numbox-max="maxcount" style="height:25px;">
 					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-					<input id="test" class="mui-input-numbox" type="number" :value="count" @change="countChanged" ref="shopcarnumbox" />
+					<input id="test" class="mui-input-numbox" type="number" v-model="count"  @change="countChanged" ref="shopcarnumbox" />
 					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 			</div>
   </div>
@@ -13,14 +13,13 @@ import mui from '../../lib/mui/js/mui.min.js'
 export default {
   data(){
     return{
-
+      
      }
   },
   props:[
     "id",
     "count",
     "maxcount"
-    
   ],
   mounted() {
     //初始化数字选择框组件
@@ -29,10 +28,9 @@ export default {
   methods:{
     countChanged(){
       //每当文本框的数据被修改的时候 立即把最新的数据通过事件调用传递给父组件
-      // console.log(this.$refs.numbox.value)
+      // console.log(this.$refs.shopcarnumbox.value)
       // this.$emit("getCount",parseInt(this.$refs.numbox.value))
-     var goodsinfo = {id:this.id ,count:this.$refs.shopcarnumbox.value}
-     this.$store.commit("updateShopCar",goodsinfo)
+     this.$store.commit("updateShopCar", {id:this.id ,count:this.$refs.shopcarnumbox.value})
     }
   },
   watch:{

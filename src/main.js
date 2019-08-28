@@ -42,10 +42,11 @@ var store = new Vuex.Store({
             var flag = false;
             state.car.some(item => {
                 if(item.id == goodsInfos.id){
-                    item.count += parseInt(goodsInfos.count);
+                   
+                    item.count += Number(goodsInfos.count);
+                    item.optional = item.kucun-item.count;
                     item.img_url = goodsInfos.img_url;
                     item.title = goodsInfos.title;
-                    item.kucun = goodsInfos.maxcount;
                     flag = true;
                     return true;
                 }
@@ -62,28 +63,61 @@ var store = new Vuex.Store({
             state.car.some(item=>{
                 if(item.id == goodsInfos.id){
                     item.count = parseInt(goodsInfos.count);
+                    console.log(item.count)
+                    item.optional=item.kucun-item.count
                 };
                 localStorage.setItem('car',JSON.stringify(state.car))
             })
         },
-        delGoods(state,id){
+        removeFromCar(state,id){
             state.car.some((item,i)=> {
                 if (item.id == id){
                     state.car.splice(i,1);
                     return true;
                 };
-                localStorage.setItem('car',JSON.stringify(state.car))
-            })
+               
+            });
+            localStorage.setItem('car',JSON.stringify(state.car))
         }
         
+    },
+    watch: {
+        'this.$refs.numbox.value' : function(newVal){
+        console.log(newVal)
+      }
     },
     getters: {
         getAllCount(state){
             var c = 0;
             state.car.forEach(item => {
-                c += item.count
+                if(item.selected){
+                    c += item.count
+                }
             });
             return c;
+        },
+        getAllCountPrice(state){
+            var c = 0;
+            state.car.forEach(item => {
+                if(item.selected){
+                    c += item.count*item.price
+                }
+            });
+            return c;
+        },
+        getKuCun(state){
+            var o = {};
+            state.car.forEach(item => {
+                o[item.id] = item.kucun;
+            });
+            return o;
+        },
+        getOptional(state){
+            var o = {};
+            state.car.forEach(item => {
+                o[item.id] = item.optional;
+            });
+            return o;
         },
         getCount(state){
             var o = {};
@@ -91,14 +125,7 @@ var store = new Vuex.Store({
                 o[item.id] = item.count;
             });
             return o;
-      },
-      getMaxCount(state){
-        var m = {};
-        state.car.forEach(item => {
-            m[item.id] = item.maxcount;
-        });
-        return m;
-  }
+      }
     }
 })
 var vm = new Vue({

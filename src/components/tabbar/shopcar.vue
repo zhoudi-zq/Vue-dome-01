@@ -11,8 +11,8 @@
                 <h1>{{  item.title }}</h1>
                 <p>
                   <span class="price">￥{{ item.price }}</span>
-                  <shopcarnumbox :id="item.id" :count="$store.getters.getCount[item.id]" :maxcount="$store.getters.getMaxCount[item.id]"></shopcarnumbox>
-                  <a href="#" class="del" @click="del(item.id,i)">删除</a>
+                  <shopcarnumbox :id="item.id" :count="$store.getters.getCount[item.id]"  :maxcount="$store.getters.getKuCun[item.id]"></shopcarnumbox>
+                  <a href="#" class="del" @click.prevent="remove(item.id,i)">删除</a>
                 </p>
               </div>
               </div>
@@ -25,7 +25,7 @@
 					<div class="mui-card-content-inner jiesuan">
             <div class="left">
               <p>总计（不含运费）</p>
-              <p>已勾选商品 <span class="red">0</span> 件，总价 <span class="red">￥0</span></p>
+              <p>已勾选商品 <span class="red">{{$store.getters.getAllCount}}</span> 件，总价 <span class="red">￥{{$store.getters.getAllCountPrice}}</span></p>
             </div>
             <div class="right">
                <mt-button type="danger">去结算</mt-button>
@@ -73,9 +73,9 @@ export default {
       // console.log( localStorage.car);
       
     },
-    del(id,index){
+    remove(id,index){
       this.goodslist.splice(index,1);
-      this.$store.commit("delGoods",id)
+      this.$store.commit("removeFromCar",id)
     }
   },
   components:{

@@ -38,7 +38,6 @@
 			 return{
 				 Falg:false,
 				 allcount:0
-
 			 }
 		 },
 		 created(){
