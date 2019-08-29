@@ -1,7 +1,8 @@
 <template>
     <div class="app-container">
         
-        <mt-header fixed title="我的Vue项目">
+        <mt-header fixed title="我的
+		Vue项目">
 					<span slot="left" @click="goBack" v-show="Falg">
     					<mt-button icon="back" >返回</mt-button>
   				</span>
