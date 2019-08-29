@@ -2,7 +2,7 @@
     <div class="cmt-container">
       <h3>发表评论</h3>
       <hr>
-      <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120" v-model="msg"></textarea>
+      <textarea placeholder="请输入要评论的内容（最多吐槽120字）" maxlength="120" v-model="msg"></textarea>
       <div class="cmt-list">
         <div class="cmt-item"  v-for="(item,i) in cmtlist" :key="item.user_name">
         <div class="cmt-title" >
@@ -40,7 +40,8 @@ export default {
       if(this.msg.trim().length === 0){
        return Toast("评论内容不能为空")
       }
-      // this.$http.post("../../js/post.json"+this.$route.params.id,{content:this.msg}).then(result=>{
+      return Toast("没有Api，还不能发表评论")
+      // this.$http.post("../../json/post.json"+this.$route.params.id,{content:this.msg}).then(result=>{
       //   if(result.body.status === 0){
       //     var cmt = {
       //       user_name:"匿名用户",
