@@ -70,7 +70,7 @@ export default{
     },
   methods:{
     getLunbotu(){//获取轮播图数据的方法
-      this.$http.get('../../../js/goodsphoto.json').then(result=>{
+      this.$http.get('../../../json/goodsphoto.json').then(result=>{
         if(result.body.status === 0){
           //成功了
           this.LunboList = result.body.message;
@@ -82,7 +82,7 @@ export default{
       })
     },
     getGoodsInfo(){
-      this.$http.get('../../../js/getgoodsinfo.json').then(result=>{
+      this.$http.get('../../../json/getgoodsinfo.json').then(result=>{
         if(result.body.status === 0){
           // console.log(result.body.message[this.$route.params.id]);
           this.goodsinfo = result.body.message[this.id]

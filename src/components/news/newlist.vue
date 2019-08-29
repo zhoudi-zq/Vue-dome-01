@@ -29,7 +29,7 @@
     created(){this.getList()},
     methods:{
       getList(){
-        this.$http.get('../../../js/api1.json').then(result=>{
+        this.$http.get('../../../json/api1.json').then(result=>{
           if(result.body.status === 0){
             this.news = result.body.message
           }else{

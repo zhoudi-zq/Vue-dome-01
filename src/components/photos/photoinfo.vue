@@ -25,7 +25,7 @@ export default {
   },
   methods:{
     getPhotoInfo(){
-      this.$http.get("../../../js/photoinfo.json").then(result=>{
+      this.$http.get("../../../json/photoinfo.json").then(result=>{
         if(result.body.status === 0){
          this.photoinfos = result.body.message
         }

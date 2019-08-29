@@ -28,7 +28,7 @@ export default {
   },
   methods:{
     getNews(){
-      this.$http.get('../../../js/getnews.json').then(result=>{
+      this.$http.get('../../../json/getnews.json').then(result=>{
           if(result.body.status === 0 ){
             this.newsinfo = result.body.message[0];
             // console.log(this.newsinfo)

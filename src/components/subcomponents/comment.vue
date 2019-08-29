@@ -53,7 +53,7 @@ export default {
       // })
     },
     getCmtList(){
-      this.$http.get("../../js/cmtlist"+this.pageIndex+".json").then(result=>{
+      this.$http.get("../../json/cmtlist"+this.pageIndex+".json").then(result=>{
         if(result.body.status === 0){
           // console.log(result.body.message[5].content);
         this.cmtlist =this.cmtlist.concat(result.body.message) 

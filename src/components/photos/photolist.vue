@@ -52,7 +52,7 @@ import mui from '../../lib/mui/js/mui.min.js'
 		},
     methods:{
 				getPhotoList(){
-					this.$http.get("../../js/photolist.json").then(result=>{
+					this.$http.get("../../json/photolist.json").then(result=>{
 						if(result.body.status === 0){
 							// console.log(result.body.message)
 							
@@ -69,7 +69,7 @@ import mui from '../../lib/mui/js/mui.min.js'
 					})
 				},
 				getPhotos(cateId){
-					this.$http.get("../../js/photos"+cateId+".json").then(result=>{
+					this.$http.get("../../json/photos"+cateId+".json").then(result=>{
 						if(result.body.status === 0){
 							console.log(cateId);
 							this.list = result.body.message
